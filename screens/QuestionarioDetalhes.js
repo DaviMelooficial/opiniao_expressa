@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import TopHeader from '../components/TopHeader'; // Importando o TopHeader
+import TopHeader from '../components/TopHeader';
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,7 +35,7 @@ const QuestionarioDetalhes = () => {
   const handleEnviarRespostas = () => {
     console.log('Respostas enviadas:', respostas);
     alert('Respostas enviadas com sucesso!');
-    navigation.navigate('Questionario'); // Redireciona para a tela de Questionários
+    navigation.navigate('Questionario');
   };
 
   return (
@@ -66,7 +66,7 @@ const QuestionarioDetalhes = () => {
             key={pergunta.id}
             style={[
               styles.inputContainer,
-              { backgroundColor: pergunta.responded ? '#C8E6C9' : '#FFCDD2' }, // Cor verde se respondido, vermelho se não
+              { backgroundColor: pergunta.responded ? '#C8E6C9' : '#FFCDD2' },
             ]}
           >
             <Text style={styles.perguntaTexto}>{pergunta.texto}</Text>

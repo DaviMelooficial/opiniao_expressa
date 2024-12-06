@@ -1,6 +1,6 @@
-// screens/LoginScreen.js
+// LoginScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
   const [selectedTab, setSelectedTab] = useState('login');
@@ -9,6 +9,60 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpf, setCpf] = useState('');
+
+  // Função para realizar o login e enviar dados ao backend
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Email: email,
+          Senha: password,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        Alert.alert('Login bem-sucedido', `Bem-vindo, ${data.nome}!`);
+        navigation.navigate('Questionario');
+      } else {
+        const errorData = await response.json();
+        Alert.alert('Erro no login', errorData.message || 'Verifique suas credenciais.');
+      }
+    } catch (error) {
+      Alert.alert('Erro de conexão', 'Não foi possível conectar ao servidor. Verifique se ele está ativo.');
+    }
+  };
+
+  // Função para realizar o registro e enviar dados ao backend
+  const handleRegister = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/cadastro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Email: email,
+          Cpf: cpf,
+          Senha: password,
+        }),
+      });
+
+      if (response.ok) {
+        Alert.alert('Cadastro bem-sucedido', 'Sua conta foi criada com sucesso!');
+        setSelectedTab('login');
+      } else {
+        const errorData = await response.json();
+        Alert.alert('Erro no cadastro', errorData.message || 'Não foi possível concluir o cadastro.');
+      }
+    } catch (error) {
+      Alert.alert('Erro de conexão', 'Não foi possível conectar ao servidor. Verifique se ele está ativo.');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -52,7 +106,7 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.loginButton}
-            onPress={() => navigation.navigate('Questionario')}
+            onPress={handleLogin}
           >
             <Text style={styles.buttonText}>Entrar ➔</Text>
           </TouchableOpacity>
@@ -82,7 +136,10 @@ const LoginScreen = ({ navigation }) => {
             value={password}
             onChangeText={setPassword}
           />
-          <TouchableOpacity style={styles.registerButton}>
+          <TouchableOpacity
+            style={styles.registerButton}
+            onPress={handleRegister}
+          >
             <Text style={styles.buttonText}>Registrar</Text>
           </TouchableOpacity>
         </View>
@@ -95,8 +152,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4B0082',
-    justifyContent: 'center', // Centraliza verticalmente
-    alignItems: 'center', // Centraliza horizontalmente
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   headerText: {

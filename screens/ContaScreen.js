@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView, StatusBar, Platform, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import TopHeader from '../components/TopHeader'; // Importando o novo componente de header
+import TopHeader from '../components/TopHeader';
 
 const { width, height } = Dimensions.get('window');
 
@@ -56,7 +56,7 @@ const ContaScreen = ({ navigation }) => {
         <Text style={styles.voltarText}>Voltar</Text>
       </TouchableOpacity>
 
-      {/* Conteúdo em um único ScrollView */}
+      {/* Conteúdo ScrollView */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Seu Perfil */}
         <View style={styles.perfilContainer}>

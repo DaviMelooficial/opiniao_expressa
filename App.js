@@ -9,7 +9,7 @@ import QuestionarioScreen from './screens/QuestionarioScreen';
 import ContaScreen from './screens/ContaScreen';
 import ResetPasswordScreen from './screens/ResetPasswordScreen';
 import QuestionarioDetalhes from './screens/QuestionarioDetalhes';
-import AjudaScreen from './screens/AjudaScreen'; // Importando a nova tela AjudaScreen
+import AjudaScreen from './screens/AjudaScreen'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -52,10 +52,10 @@ export default function App() {
         />
         <Stack.Screen
           name="Ajuda"
-          component={AjudaScreen} // Adicionando a nova tela AjudaScreen
+          component={AjudaScreen} 
           options={{
             title: 'Ajuda',
-            headerShown: false, // Oculta o header nativo
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

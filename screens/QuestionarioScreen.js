@@ -12,7 +12,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import TopHeader from '../components/TopHeader'; // Importando o componente de header
+import TopHeader from '../components/TopHeader';
 import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');

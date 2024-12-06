@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginHorizontal: width * 0.02,
   },
   logo: {
-    width: width * 0.20, // Ajustado para ser maior
+    width: width * 0.20,
     height: width * 0.15,
   },
   divider: {

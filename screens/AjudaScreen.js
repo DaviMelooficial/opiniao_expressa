@@ -3,7 +3,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { View, Text, StyleSheet, Image, TouchableOpacity, SafeAreaView, StatusBar, Dimensions } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import TopHeader from '../components/TopHeader'; // Importa o componente de cabeçalho superior
+import TopHeader from '../components/TopHeader';
 import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');

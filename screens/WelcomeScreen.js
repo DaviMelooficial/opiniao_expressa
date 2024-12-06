@@ -31,18 +31,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#8A2BE2',
   },
   logoContainer: {
-    width: 200, // Largura do contêiner
-    height: 200, // Altura do contêiner
-    borderRadius: 100, // Tornar o contêiner redondo
-    overflow: 'hidden', // Cortar qualquer parte que exceda os limites do contêiner
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    overflow: 'hidden',
     marginBottom: 30,
-    borderWidth: 4, // Borda opcional
-    borderColor: '#FFF', // Cor da borda
+    borderWidth: 4,
+    borderColor: '#FFF', 
   },
   logo: {
-    width: '100%', // Largura da imagem para preencher o contêiner
-    height: '100%', // Altura da imagem para preencher o contêiner
-    resizeMode: 'cover', // Redimensionar sem distorcer a proporção
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   title: {
     fontSize: 32,
