@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
   // Função para realizar o registro e enviar dados ao backend
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://localhost:8080/cadastro', {
+      const response = await fetch('http://localhost:8080/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
